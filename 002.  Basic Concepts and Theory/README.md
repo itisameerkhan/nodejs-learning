@@ -41,3 +41,18 @@ Node.js is a versatile runtime environment that empowers developers to build a w
 * Command-Line Tools 
 * Backend for Mobile Apps
 * CMS (Content Management Systems)
+
+## Differences between Node.js and the Browser
+
+In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies. Those do not exist in Node.js, of course. You don't have the `document`, `window` and all the other objects that are provided by the browser.
+
+Context | Node.js V8 | Browser V8 |
+|---|---| --- |
+|Environment | Runs in a server-side environment. | Runs in a client-side environment within web browsers.|
+| Context and APIs | Includes APIs specific to server-side tasks, such as file system manipulation, networking, and access to operating system resources. | Provides APIs for interacting with the Document Object Model (DOM), handling events, and making asynchronous requests using XMLHttpRequest or the Fetch API. |
+| Global Object | Has a global object named `global` that represents the global scope in Node.js. | Has a global object named `window` that represents the global scope in the browser.
+| Modules and Dependency Management | Uses the CommonJS module system for module loading and dependency management in server-side JavaScript. | Uses ECMAScript modules (ESM) for module loading and dependency management in client-side JavaScript.
+| Native Modules | Supports native add-ons written in C/C++ that can be loaded into Node.js applications | Typically doesn't support native add-ons. Browser environments rely on web APIs for additional functionality.
+| Event Loop and Asynchronous I/O | Utilizes an event-driven, non-blocking I/O model to handle concurrent connections efficiently. | Also uses an event-driven, non-blocking I/O model to handle asynchronous tasks for a responsive user experience.
+  
+
