@@ -1,5 +1,7 @@
 # Sending HTML Response
 
+![node4](/assets/node4.png)
+
 ```js
 const http = require('http');
 const server = http.createServer((req, res) => {
