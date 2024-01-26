@@ -318,3 +318,5 @@ server.listen(5000, 'localhost', (error) => {
 * Kept the basic error handling for reading HTML files using `fs.readFile.`
 
 * These changes implement a 301 redirection for undefined routes, guiding users to the root URL.
+
+![node3](/assets/node3.png)
