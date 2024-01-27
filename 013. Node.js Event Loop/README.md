@@ -184,3 +184,25 @@ b. Checks the callback queue. If there's a callback function, it's moved to the 
 c. Executes the function in the call stack.
 
 d. Repeats these steps continuously.
+
+--- 
+
+# Event Loop Phases
+
+We simplified the event loop as a mechanism that pushes callbacks from a single event queue to an empty call stack. In reality, the event loop is composed of multiple phases, each responsible for specific asynchronous tasks.
+
+![demo](/assets/node12.gif)
+
+> A phase is a FIFO queue of callbacks to execute. When the event loop enters a given phase, it executes callbacks until the queue is exhausted or the maximum number of callbacks is run and moves to the next stage.
+
+### The event loop has 6 phases, and they run in the following order:
+
+* **Timers**: executes callbacks scheduled by setTimeout() and setInterval().
+* **Pending callbacks**: executes I/O callbacks deferred to the next loop iteration.
+* **Idle-prepare:** only used internally.
+* **Poll**: retrieve new I/O events and execute I/O-related callbacks
+* **Check**: executes callbacks scheduled by setImmediate().
+* **Close callbacks**: some close callbacks, e.g., socket.on('close', …).
+
+![demo](/assets/node13.gif)
+
