@@ -1,5 +1,7 @@
 # Listing Files with the File System Module
 
+![demo](/assets/filesystems.jpeg)
+
 ###  Problem Statement : Make files in a folder
 
 ### 1. Create a folder named files in the root directory of your project.
