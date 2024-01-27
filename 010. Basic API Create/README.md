@@ -88,3 +88,199 @@ Now we can see the output in the browser like this.
 
 You can also check it out in the postman.
 
+## ⭐ Add more data
+
+Separate the data using `data.js`
+
+Create a new file `data.js` and add this code.
+
+```js
+
+const data = [
+  {
+    name: "Rajesh",
+    age: 20,
+    address: {
+      city: "Delhi",
+      state: "Delhi",
+      country: "India",
+    },
+    hobbies: ["coding", "reading", "playing"],
+    skills: ["html", "css", "js", "nodejs"],
+    education: {
+      school: "Delhi Public School",
+      college: "Delhi University",
+      degree: "B.Tech",
+    },
+    projects: {
+      project1: "Portfolio",
+      project2: "Blog",
+      project3: "E-commerce",
+    },
+    social: {
+      github: "rajesh.github.io",
+      linkedin: "rajesh.linkedin.com",
+      twitter: "rajesh.twitter.com",
+    },
+    work: {
+      company: "XYZ",
+      position: "Software Engineer",
+      experience: "2 years",
+    },
+    achievements: {
+      achievement1: "Won a hackathon",
+      achievement2: "Got a scholarship",
+      achievement3: "Got a job",
+    },
+    interests: {
+      interest1: "Reading",
+      interest2: "Playing",
+      interest3: "Coding",
+    },
+    languages: {
+      language1: "English",
+      language2: "Hindi",
+      language3: "Punjabi",
+    },
+    contact: {
+      phone: "1234567890",
+      email: "rajesh.dev.com",
+    },
+  },
+  {
+    name: "Subham",
+    age: 20,
+    address: {
+      city: "Delhi",
+      state: "Delhi",
+      country: "India",
+    },
+    hobbies: ["coding", "reading", "playing"],
+    skills: ["html", "css", "js", "nodejs"],
+    education: {
+      school: "Delhi Public School",
+      college: "Delhi University",
+      degree: "B.Tech",
+    },
+    projects: {
+      project1: "Portfolio",
+      project2: "Blog",
+      project3: "E-commerce",
+    },
+    social: {
+      github: "subham.github.io",
+      linkedin: "subham.linkedin.com",
+      twitter: "subham.twitter.com",
+    },
+    work: {
+      company: "XYZ",
+      position: "Software Engineer",
+      experience: "2 years",
+    },
+    achievements: {
+      achievement1: "Won a hackathon",
+      achievement2: "Got a scholarship",
+      achievement3: "Got a job",
+    },
+    interests: {
+      interest1: "Reading",
+      interest2: "Playing",
+      interest3: "Coding",
+    },
+    languages: {
+      language1: "English",
+      language2: "Hindi",
+      language3: "Punjabi",
+    },
+    contact: {
+      phone: "1234567890",
+      email: "subham.dev.com",
+    },
+  },
+  {
+    name: "Rahul",
+    age: 20,
+    address: {
+      city: "Delhi",
+      state: "Delhi",
+      country: "India",
+    },
+    hobbies: ["coding", "reading", "playing"],
+    skills: ["html", "css", "js", "nodejs"],
+    education: {
+      school: "Delhi Public School",
+      college: "Delhi University",
+      degree: "B.Tech",
+    },
+    projects: {
+      project1: "Portfolio",
+      project2: "Blog",
+      project3: "E-commerce",
+    },
+    social: {
+      github: "rahul.github.io",
+      linkedin: "rahul.linkedin.com",
+      twitter: "rahul.twitter.com",
+    },
+    work: {
+      company: "XYZ",
+      position: "Software Engineer",
+      experience: "2 years",
+    },
+    achievements: {
+      achievement1: "Won a hackathon",
+      achievement2: "Got a scholarship",
+      achievement3: "Got a job",
+    },
+    interests: {
+      interest1: "Reading",
+      interest2: "Playing",
+      interest3: "Coding",
+    },
+    languages: {
+      language1: "English",
+      language2: "Hindi",
+      language3: "Punjabi",
+    },
+    contact: {
+      phone: "1234567890",
+      email: "rahul.dev.com",
+    },
+  },
+];
+
+module.exports = data;
+```
+
+2. Now we can import this data in the `server.js` file using `require` method.
+
+```js
+const data = require('./data.js');
+```
+
+3. Now pass the data variable in the `write` method of the `res` object inside `JSON.stringify` method like this.
+
+```js
+res.write(JSON.stringify(data))
+```
+
+### Now our server will look like this
+
+```js
+const http = require('http');
+const data = require('./data');
+
+const server = http.createServer((req, res) => {
+
+    res.writeHead(200, {'Content-Type' : 'application/json'});
+    res.write(JSON.stringify(data));
+    res.end();
+
+}).listen(5000);
+```
+
+### output: 
+
+```
+[{"name":"Rajesh","age":20,"address":{"city":"Delhi","state":"Delhi","country":"India"},"hobbies":["coding","reading","playing"],"skills":["html","css","js","nodejs"],"education":{"school":"Delhi Public School","college":"Delhi University","degree":"B.Tech"},"projects":{"project1":"Portfolio","project2":"Blog","project3":"E-commerce"},"social":{"github":"rajesh.github.io","linkedin":"rajesh.linkedin.com","twitter":"rajesh.twitter.com"},"work":{"company":"XYZ","position":"Software Engineer","experience":"2 years"},"achievements":{"achievement1":"Won a hackathon","achievement2":"Got a scholarship","achievement3":"Got a job"},"interests":{"interest1":"Reading","interest2":"Playing","interest3":"Coding"},"languages":{"language1":"English","language2":"Hindi","language3":"Punjabi"},"contact":{"phone":"1234567890","email":"rajesh.dev.com"}},{"name":"Subham","age":20,"address":{"city":"Delhi","state":"Delhi","country":"India"},"hobbies":["coding","reading","playing"],"skills":["html","css","js","nodejs"],"education":{"school":"Delhi Public School","college":"Delhi University","degree":"B.Tech"},"projects":{"project1":"Portfolio","project2":"Blog","project3":"E-commerce"},"social":{"github":"subham.github.io","linkedin":"subham.linkedin.com","twitter":"subham.twitter.com"},"work":{"company":"XYZ","position":"Software Engineer","experience":"2 years"},"achievements":{"achievement1":"Won a hackathon","achievement2":"Got a scholarship","achievement3":"Got a job"},"interests":{"interest1":"Reading","interest2":"Playing","interest3":"Coding"},"languages":{"language1":"English","language2":"Hindi","language3":"Punjabi"},"contact":{"phone":"1234567890","email":"subham.dev.com"}},{"name":"Rahul","age":20,"address":{"city":"Delhi","state":"Delhi","country":"India"},"hobbies":["coding","reading","playing"],"skills":["html","css","js","nodejs"],"education":{"school":"Delhi Public School","college":"Delhi University","degree":"B.Tech"},"projects":{"project1":"Portfolio","project2":"Blog","project3":"E-commerce"},"social":{"github":"rahul.github.io","linkedin":"rahul.linkedin.com","twitter":"rahul.twitter.com"},"work":{"company":"XYZ","position":"Software Engineer","experience":"2 years"},"achievements":{"achievement1":"Won a hackathon","achievement2":"Got a scholarship","achievement3":"Got a job"},"interests":{"interest1":"Reading","interest2":"Playing","interest3":"Coding"},"languages":{"language1":"English","language2":"Hindi","language3":"Punjabi"},"contact":{"phone":"1234567890","email":"rahul.dev.com"}}]
+```
