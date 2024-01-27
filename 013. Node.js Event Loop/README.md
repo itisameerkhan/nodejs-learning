@@ -206,3 +206,8 @@ We simplified the event loop as a mechanism that pushes callbacks from a single 
 
 ![demo](/assets/node13.gif)
 
+## Articles and Blogs 
+
+* [Node.js animated: Event Loop](https://dev.to/nodedoctors/an-animated-guide-to-nodejs-event-loop-3g62)
+
+* [Node.js animated: Event Loop Phases](https://dev.to/nodedoctors/animated-nodejs-event-loop-phases-1mcp)
