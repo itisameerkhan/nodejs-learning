@@ -153,3 +153,34 @@ once the callback function is empty event loop pushes the callback function into
 |  |   | start |  | 
 |  |    | end |  | 
 |  |    | data inside file |  | 
+
+
+### Event Loop Overview:
+
+Node.js follows a single-threaded, event-driven, and non-blocking I/O model. The event loop is a crucial part of this architecture. It continuously checks the message queue (also known as the callback queue) for new messages and executes the associated callback functions.
+
+### Async Operations in libuv:
+
+When you perform an asynchronous operation, such as reading a file using `fs.readFile`, Node.js delegates the task to libuv, which manages asynchronous I/O operations. libuv uses mechanisms like threads and a thread pool to handle asynchronous tasks outside the main event loop thread.
+
+### Callback Queue:
+
+Once an asynchronous operation completes, libuv places the corresponding callback function into the **callback queue**. This queue holds the functions that need to be executed once the call stack is empty.
+
+### Event Loop Execution:
+
+*The event loop continuously checks two main queues: **the call stack and the callback queue.**
+
+* The call stack is a stack of function calls that need to be executed. When a function is called, it's added to the stack. When it's done, it's removed.
+
+* The callback queue holds the completed async operations and callback functions
+
+* The event loop performs the following steps:
+
+a. Checks the call stack. If it's empty, proceeds to the next step.
+
+b. Checks the callback queue. If there's a callback function, it's moved to the call stack for execution.
+
+c. Executes the function in the call stack.
+
+d. Repeats these steps continuously.
