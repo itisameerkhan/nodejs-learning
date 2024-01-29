@@ -30,3 +30,67 @@ In the context of Node.js, a REST API typically involves creating endpoints (URL
 
 ![dmeo](/assets/demo9.png)
 
+## ⭐ Routes
+```
+GET      /api/movies
+POST     /api/movies
+GET      /api/movies/:id
+PUT      /api/movies/:id
+DELETE   /api/movies/:id
+
+```
+
+### ✨ Consider This Code snippet
+
+```js
+const server = http.createServer((req, res) => {
+
+    req.movies = movies;
+    
+    switch(req.method) {
+        case "GET": 
+            getRequest(req,res);
+            break;
+        case "POST": 
+            postRequest(req,res);
+            break;
+        case "PUT": 
+            putRequest(req,res);
+            break;
+        case "DELETE": 
+            deleteRequest(req,res);
+            break;
+        default:
+            res.statusCode = 404;
+            res.setHeader('Content-Type', 'application/json');
+            res.write(JSON.stringify({title: "Not Found", message: 'Route Not Found!'}));
+            res.end();
+    }
+});
+```
+
+### ✨ Breakdown of this code
+
+####  `const server = http.createServer((req, res) => { ... });`:
+
+ * Creates an HTTP server. The provided callback function is called for every incoming HTTP request.
+
+#### `req.movies = movies;`:
+
+* Attaches a movies property to the `req` (request) object. This is likely setting up some initial data that can be used throughout the request-handling process.
+
+#### `switch(req.method) { ... }:` 
+
+* Switches based on the HTTP method of the incoming request (req.method). The server supports handling GET, POST, PUT, and DELETE methods.
+
+#### Cases for different HTTP methods:
+
+* case "`GET`": `getRequest(req, res);`: Calls getRequest function to handle GET requests.
+
+* case "`POST`": `postRequest(req, res);`: Calls postRequest function to handle POST requests.
+
+* case "`PUT`": `putRequest(req, res);`: Calls putRequest function to handle PUT requests.
+
+* case "`DELETE`": `deleteRequest(req, res);`: Calls deleteRequest function to handle DELETE requests.
+
+* `default`: If the HTTP method is not GET, POST, PUT, or DELETE, set the response status code to 404 (Not Found) and send a JSON response indicating that the route is not found.
