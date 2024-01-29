@@ -1,10 +1,11 @@
-# Express in Action
+# 💫 Express in Action
 
-## Fast, unopinionated, minimalist web framework for Node.js
+## ⭐ Fast, unopinionated, minimalist web framework for Node.js
 
 ![demo](/assets/demo7.png)
 
-## What is Express.js ?
+## ⭐ What is Express.js ?
+
 
 Express.js is a minimal and flexible NodeJS framework that provides a robust set of features for web applications like routing, sessions, caching, etc. It makes it easier to organize your application’s functionality with middleware and routing. It adds helpful utilities to Node.js’s HTTP objects. It facilitates the rendering of dynamic HTTP objects.
 
@@ -17,13 +18,13 @@ utilities to Node.js’s HTTP objects.
 
 * It defines an easily implemented extensibility standard. 
 
-#### Here's a simple way to think about the difference between Express.js and Node.js:
+#### ✨ Here's a simple way to think about the difference between Express.js and Node.js:
 
 * Express.js is like a house. It provides the structure and foundation that you need to build your web application.
 
 * Node.js is like the land that the house is built on. It provides the underlying infrastructure that allows Express.js to work. Without Express.js, you could still build a web application using Node.js, but it would be much more difficult and time-consuming. Express.js provides a number of features that make it much easier to build web applications, such as routing, templating, and error handling.
 
-## Why Use Express.js?
+## ⭐ Why Use Express.js?
 
 * **Simplifies Web Development:** Express simplifies the development of web applications by providing a higher-level abstraction over raw Node.js.
 
@@ -37,13 +38,13 @@ utilities to Node.js’s HTTP objects.
 
 * **Scalability**: It's lightweight and flexible, allowing developers to structure their applications as needed, promoting scalability.
 
-## Difference Between Node.js and Express.js
+## ⭐ Difference Between Node.js and Express.js
 
 * **Node.js**: It is a runtime environment that allows you to execute JavaScript code on the server side. It provides the core functionality for building server-side applications.
 
 * **Express.js:** It is a web application framework built on top of Node.js. Express adds features and tools for building web applications and APIs, simplifying the development process.
 
-##  Functionality of Express.js
+## ⭐ Functionality of Express.js
 
 * **Routing**: Define routes for different parts of your application and handle HTTP methods.
 
@@ -61,13 +62,13 @@ utilities to Node.js’s HTTP objects.
 
 * **Session Management:** Implement session management and cookies for user authentication.
 
-## Installation
+## ⭐ Installation
 
 ```
 npm install express
 ```
 
-## Hello World
+## ⭐ Hello World
 
 ```js
 const express = require('express');
@@ -134,3 +135,5 @@ http://localhost:5000
 
 Open your web browser and navigate to http://localhost:3000. You should see a message that says **hello world"**.
 That's it! You have successfully installed Express.js and created a simple app.
+
+> This app starts a server and listens on port 3000 for connections. The app responds with “Hello World!” for requests to the root URL (/) or route. For every other path, it will respond with a **404 Not Found**.
