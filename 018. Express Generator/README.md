@@ -63,3 +63,18 @@ set DEBUG=express-app:* & npm start
 ```cmd
 $env:DEBUG='express-app:*'; npm start
 ```
+
+### ✨ Explanation for what `DEBUG=myapp:* npm start` is actually doing
+
+* `DEBUG=myapp:* npm start` consist of two parts.
+
+* The first part is `DEBUG=myapp:*` and the second part is `npm start`.
+
+* You may run `DEBUG=myapp:*` first in your command-line tool, and then followed by running `npm start`.
+
+* `DEBUG=myapp:*` means you are telling nodejs that you want to turn on logging for debugging purposes.
+
+* The `*` in `myapp:*` means to see all the internal logs used in Express
+* If you only want to see the logs from the router implementation, then set the value of DEBUG to `myapp:router`. Likewise, to see logs only from the application implementation set the value of DEBUG to `myapp:application`, and so on.
+
+<img src='https://i.stack.imgur.com/EZR4x.png'>
