@@ -180,3 +180,37 @@ app.use((req, res) => {
     res.sendFile('./views/404.html', {root: __dirname});
 })
 ```
+
+#### ✒️ 1. Serve the Home Page ('/') Route
+
+```js
+app.get('/', (req, res) => {
+    res.sendFile('./views/index.html', {root: __dirname});
+});
+```
+
+* This code sets up a route for the root URL ('/'). When a user accesses the home page, Express will respond by sending the "index.html" file located in the "views" directory.
+
+* `res.sendFile('./views/index.html', {root: __dirname});` specifies the relative path to the HTML file. `{root: __dirname}` sets the root directory for the file, ensuring it's served from the correct location.
+
+#### ✒️ 2. Serve the About Page ('/about') Route
+
+```js
+app.get('/about', (req, res) => {
+    res.sendFile('./views/about.html', {root: __dirname});
+});
+```
+
+This code sets up a route for the `/about` URL. When a user accesses the `/about` route, Express will respond by sending the `about.html` file located in the `views` directory.
+
+#### ✒️ 3. 404 Not Found Page
+
+```js
+app.use((req, res) => {
+    res.sendFile('./views/404.html', {root: __dirname});
+});
+```
+
+* This code uses `app.use()` to define a middleware that will be executed for all requests. If no previous routes match the requested URL, this middleware will be triggered.
+
+* The middleware sends the `404.html` file from the `views` directory in case of a route that doesn't match any defined routes. This is a common practice for handling undefined routes, serving a custom **404 page**.
