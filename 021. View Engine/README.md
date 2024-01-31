@@ -225,3 +225,4 @@ In your main template file (e.g., index.ejs), use the `<%- include( './path' ) %
 </body>
 </html>
 ```
+---
