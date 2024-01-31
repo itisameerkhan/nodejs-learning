@@ -96,6 +96,16 @@ app.get('/', (req, res) => {
 
 ## ⭐ Static files
 
+The `express.static` middleware function in Express.js is used to serve static files, such as images, CSS files, and JavaScript files, from a specified directory. It simplifies the process of serving static assets and is often used to make client-side resources accessible to the web browser.
+
+```js
+express.static(root, [options])
+```
+
+In the example above, the express.static middleware is configured to serve files from the '`public`' directory. If there is a file named 'example.jpg' in the '`public`' directory, it can be accessed at `http://localhost:5000/example.jpg`
+
+
+
 Why we include path of `style.css` it doesn't apply styles and sends response back to the client.
 
 ![demo](/assets/demo19.png)
