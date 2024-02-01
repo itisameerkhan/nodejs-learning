@@ -73,9 +73,13 @@ app.get('/', (req, res) => {
 
 ### ✨ `next()`
 
-n Express.js, `next()` is a function that is used within middleware functions to pass control to the next middleware function in the application's request-response cycle. It's an essential mechanism for handling multiple middleware functions and routing logic.
+If the current middleware function does not end the request-response cycle, it must call `next()` to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+In Express.js, `next()` is a function that is used within middleware functions to pass control to the next middleware function in the application's request-response cycle. It's an essential mechanism for handling multiple middleware functions and routing logic.
 
 * When `next()` is called within a middleware function, it signals to Express that the current middleware function has completed its processing and that control should be passed to the next middleware or route handler.
+
+![demo](/assets/demo21.png)
 
 ### ✨ To Fix this 
 
@@ -133,3 +137,39 @@ app.use(express.static('public'));
 ```
 
 which takes `public` folder and anything inside it, send as response to the client, and we can access them.
+
+## ⭐ Using middleware
+
+An Express application can use the following types of middleware:
+
+* Application-level middleware
+* Router-level middleware
+* Error-handling middleware
+* Built-in middleware
+* Third-party middleware
+
+## ⭐ Application level Middleware
+
+```js
+const express = require('express');
+const app = express();
+
+app.listen(5000);
+
+const loggerMiddleware = (req, res, next) => {
+    console.log(`${new Date()} -- ${req.method} ${req.url}`);
+}
+app.use(loggerMiddleware);
+```
+
+Here is an example of loading a series of middleware functions at a mount point, with a mount path. It illustrates a middleware sub-stack that prints request info for any type of HTTP request to the `/user/:id` path.
+
+```js
+app.use('/user/:id', (req, res, next) => {
+  console.log('Request URL:', req.originalUrl)
+  next()
+}, (req, res, next) => {
+  console.log('Request Type:', req.method)
+  next()
+})
+```
