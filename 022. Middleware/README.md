@@ -132,4 +132,4 @@ To access this public files, we need middleware called `static`.
 app.use(express.static('public'));
 ```
 
-which takes `public` folder and anything inside it, send as response to the client, and we can access them 
+which takes `public` folder and anything inside it, send as response to the client, and we can access them.
