@@ -41,9 +41,65 @@ const demoModel = mongoose.Schema({
         default: Date.now
     }
 });
-
-export const demo = mongoose.model('demo', demoModel);
 ```
 
 In this example, we define a schema for a user document with four fields: `name`, `email`, `age`, and `createdAt`. Each field specifies its type (`String`, `Number`, `Date`, etc.) and any additional options such as `required`, `unique`, and `default`. For example, the name and email fields are required, and the email field must be unique. The age field must be a number between 18 and 60, and the createdAt field will default to the current date and time when a new document is created.
 
+## 3. ⭐ Create Model: 
+Once you've defined your schema, you need to create a Mongoose model using the `mongoose.model()` method. The model represents a collection in your MongoDB database and provides an interface for querying and manipulating documents in that collection.
+
+```js
+export const demo = mongoose.model('demo', demoModel);
+```
+---
+
+## ⭐ Schema Types
+
+```js
+name: {
+    type: String
+}
+```
+
+### ✨ String
+
+* `lowercase`: boolean, whether to always call `.toLowerCase()` on the value
+
+* `uppercase`: boolean, whether to always call `.toUpperCase()` on the value
+* `trim`: boolean, whether to always call `.trim()` on the value
+* `match`: RegExp, creates a validator that checks if the value matches the given regular expression
+* `enum`: Array, creates a validator that checks if the value is in the given array.
+* `minLength`: Number, creates a validator that checks if the value length is not less than the given number
+* `maxLength`: Number, creates a validator that checks if the value length is not greater than the given number
+* `populate`: Object, sets default populate options.
+
+### ✨ Number
+
+* `min`: Number, creates a validator that checks if the value is greater than or equal to the given minimum.
+* `max`: Number, creates a validator that checks if the value is less than or equal to the given maximum.
+* `enum`: Array, creates a validator that checks if the value is strictly equal to one of the values in the given array.
+populate: Object, sets default populate options.
+
+### ✨ Date
+
+* `min`: Date, creates a validator that checks if the value is greater than or equal to the given minimum.
+* `max`: Date, creates a validator that checks if the value is less than or equal to the given maximum.
+* `expires`: Number or String, creates a TTL index with the value expressed in seconds.
+
+### ✨ Boolean
+
+Booleans in Mongoose are plain JavaScript booleans. By default, Mongoose casts the below values to true:
+
+* `true`
+* `'true'`
+* `1`
+* `'1'`
+* `'yes'`
+
+Mongoose casts the below values to false:
+
+* `false`
+* `'false'`
+* `0`
+* `'0'`
+* `'no'`
