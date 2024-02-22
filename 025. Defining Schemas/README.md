@@ -46,6 +46,7 @@ const demoModel = mongoose.Schema({
 In this example, we define a schema for a user document with four fields: `name`, `email`, `age`, and `createdAt`. Each field specifies its type (`String`, `Number`, `Date`, etc.) and any additional options such as `required`, `unique`, and `default`. For example, the name and email fields are required, and the email field must be unique. The age field must be a number between 18 and 60, and the createdAt field will default to the current date and time when a new document is created.
 
 ## 3. ⭐ Create Model: 
+
 Once you've defined your schema, you need to create a Mongoose model using the `mongoose.model()` method. The model represents a collection in your MongoDB database and provides an interface for querying and manipulating documents in that collection.
 
 ```js
