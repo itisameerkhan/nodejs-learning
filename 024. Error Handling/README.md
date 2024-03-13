@@ -79,3 +79,94 @@ customError: This is custom Error
 
 Node.js v18.15.0
 ```
+
+### 🚫 try / catch
+
+#### 💻 code snippet
+
+```js
+try {
+    doSomething();
+} catch(e) {
+    console.log("ERROR OCCURED");
+    console.log(e);
+}
+```
+
+#### 🌐 console
+
+```
+ERROR OCCURED
+ReferenceError: doSomething is not defined
+    at file:///c:/Users/This%20PC/OneDrive/Desktop/Express%20Tuts/error.js:2:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:194:25)
+```
+
+### 🚫 Exception with Promises
+
+#### 💻 code snippet 
+
+```js
+const doSomething = (message) => {
+  console.log(message);
+  return `PROMISE IS -> ${message}`;
+};
+
+const promise = new Promise((resolve, reject) => {
+  if (false) {
+    resolve(doSomething("RESOLVE"));
+  } else {
+    reject(doSomething("REJECT"));
+  }
+});
+
+promise
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log("CAUGHT ERROR");
+    console.log(err);
+  });
+```
+
+#### 🌐 console
+
+```cmd
+REJECT
+CAUGHT ERROR
+PROMISE IS -> REJECT
+```
+
+### 🚫 Exceptions in `async` / `await`
+
+#### 💻 code snippet 
+
+```js
+const doSomething = () => {
+  const status = false;
+  return new Promise((resolve, reject) => {
+    if (status) resolve("PROMISE RESOLVED");
+    reject("PROMISE REJECTED");
+  });
+};
+
+const someFunction = async () => {
+  try {
+    const data = await doSomething();
+    console.log(data);
+  } catch (e) {
+    console.log("ERROR AND EXCEPTION CATCHED")
+    console.log(e);
+  }
+};
+
+someFunction();
+```
+
+#### 🌐 console
+
+```cmd
+ERROR AND EXCEPTION CATCHED
+PROMISE REJECTED
+```
