@@ -29,3 +29,21 @@ Hashing is a cryptographic process that transforms input data, like passwords or
 ```
 npm i bcryptjs
 ```
+
+### ⚡ Writing our logic
+
+```jsx
+import bcrypt from "bcryptjs"
+```
+
+Next, we need to create an Async function that would help us work with the promises that would be returned from bcryptjs, This is because it is a promise based library. Let's create an async function.
+
+### ⚡ Hashing Data
+
+Let us go ahead and create the information we are trying to hash, we'll be using user password as an example, I would create a variable for this password. We would assume it to be the plain text password our user provides to us.
+
+```jsx
+const someFunction = async() => {
+    const password = "Password";
+}
+```
