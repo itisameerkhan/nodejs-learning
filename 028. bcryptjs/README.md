@@ -100,3 +100,38 @@ bcryptjs gives us a way to compare our stored value, with the one the user would
 
 > [!NOTE]
 > Although we are typing this out manually, when we are building api's it would be taken from the users and not just typed by us.
+
+We would create a variable called isMatch and we would use the `.compare()` method on bcrypt and then pass in the required values, i.e user input and the hashed version we have stored.
+
+```jsx
+const someFunction = async() => {
+    const password = "Password";
+    const hashedPassword = await bcrypt.hash(password, 8);
+
+    const isMatch = await bcrypt.compare(password, hashedPassword);
+    console.log(isMatch);
+}
+```
+
+```
+true
+```
+
+Behind the scenes bcrypt has run its hashing algorithm on the user password data, and when compared to the hashedPassword, it shows it to be an exact match.
+
+```jsx
+const someFunction = async() => {
+    const password = "Password";
+    const hashedPassword = await bcrypt.hash(password, 8);
+
+    const isMatch = await bcrypt.compare("not-real-password", hashedPassword);
+    console.log(isMatch);
+}
+```
+
+```
+false
+```
+
+This is typically what we would need when we are building our applications, it could be a system where users are required to login and you want to compare the password they have provided, with the one you have in your database. This is a highly recommended way of storing such data.
+
