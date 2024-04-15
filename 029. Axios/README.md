@@ -4,6 +4,10 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/2560px-Axios_%28computer_library%29_logo.svg.png" />
 </div>
 
+<br>
+<br>
+<br>
+
 Axios is a popular npm library used for making HTTP requests from the browser or Node.js environment. It provides a simple and intuitive API for performing asynchronous HTTP requests, handling request and response data, and supporting various features such as request and response interception, automatic transformation of request and response data, and more.
 
 
@@ -61,8 +65,8 @@ In Axios, a request is an HTTP call to a server. It can be a `GET`, `POST`, `PUT
 import axios from "axios";
 
 const someFunction = async() => {
-    const data = await axios.get("https://fakestoreapi.com/products");
-    console.log(data)
+    const response = await axios.get("https://fakestoreapi.com/products");
+    console.log(response);
 }
 
 someFunction();
@@ -76,3 +80,35 @@ someFunction();
 
 
 When you make a `GET` request using Axios, the `axios.get()` function returns a Promise. The resolved value of this Promise is an Axios response object, which contains various properties and methods providing information about the HTTP response. Here's a detailed explanation of the properties you typically encounter in an Axios response object:
+
+1. **data**: This property contains the response data received from the server. It can be an object, array, string, or any other data type depending on the server's response. You access the response data using `response.data`.
+
+2. **status**: This property contains the HTTP status code of the response (e.g., 200 for OK, 404 for Not Found, etc.). You access the status code using `response.status`.
+
+3. **statusText**: This property contains the status text corresponding to the status code of the response (e.g., "OK" for 200, "Not Found" for 404, etc.). You access the status text using `response.statusText`
+
+4. **headers**: This property contains the headers of the response as an object. Each header is represented as a key-value pair in this object. You access individual headers using **response.headers**.
+
+5. **config**: This property contains the Axios request configuration that was used to make the request. It includes information such as the request URL, request method, request headers, etc. You can access the request configuration using `response.config`.
+
+6. **request**: This property contains the underlying `XMLHttpRequest` object (in the browser) or `HTTP` request object (in Node.js) that was used to make the request. You can access this object using `response.request`
+
+### ⚡ `POST` using `async/await`
+
+```jsx
+const doSomething = async() => {
+    const response = await axios.post(
+        "http://localhost:8080/api/signup",
+        {
+            username: "khan",
+            email: "khan@example.com",
+            password: "password",
+        }
+    );
+    console.log(response);
+}
+```
+
+#### 💻 console
+
+![demo](/assets/demo23.png)
