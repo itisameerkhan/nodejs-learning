@@ -91,7 +91,7 @@ When you make a `GET` request using Axios, the `axios.get()` function returns a 
 
 5. **config**: This property contains the Axios request configuration that was used to make the request. It includes information such as the request URL, request method, request headers, etc. You can access the request configuration using `response.config`.
 
-6. **request**: This property contains the underlying `XMLHttpRequest` object (in the browser) or `HTTP` request object (in Node.js) that was used to make the request. You can access this object using `response.request`
+6. **request**: This property contains the underlying `XMLHttpRequest` object (in the browser) or `HTTP` request object (in Node.js) that was used to make the request. You can access this object using `response.request`.
 
 ### ⚡ `POST` using `async/await`
 
