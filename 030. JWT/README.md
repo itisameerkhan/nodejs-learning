@@ -26,6 +26,30 @@ A JSON Web Token looks like this (newlines inserted for readability):
 
 <span style="color:red">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span>.
 <span style="color:purple">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ</span>.
-<span style="color:skyblue">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span>
+<span style="color:cyan">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span>
 
 ![image](/assets/demo25.png)
+
+In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+* Header
+
+* Payload
+
+* Signature
+
+### ⚡Header
+
+
+In JSON Web Tokens (JWTs), the header is the first part of the token and typically consists of two main components: the algorithm (`alg`) and the token type (`typ`).
+
+* **Algorithm (alg)**: This component specifies the cryptographic algorithm used to generate the signature for the token. Common algorithms include HS256 (HMAC with SHA-256), RS256 (RSA with SHA-256), and ES256 (Elliptic Curve with SHA-256). The algorithm determines how the token is signed and verified by the parties involved.
+
+* **Token Type (typ)**: This component specifies the type of token being used. The default value for JWTs is "JWT". However, other types of tokens, such as JSON Web Encryption (JWE) tokens, can also be represented using JWTs.
+
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
